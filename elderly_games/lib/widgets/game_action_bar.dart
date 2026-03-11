@@ -9,12 +9,16 @@ class GameActionBar extends StatelessWidget {
   final GameInfo game;
   final VoidCallback? onHintUsed;
   final VoidCallback? onSkipUsed;
+  /// When false the Skip button is grayed out and points are never deducted.
+  /// Defaults to true (no per-game skip limit).
+  final bool canSkip;
 
   const GameActionBar({
     super.key,
     required this.game,
     this.onHintUsed,
     this.onSkipUsed,
+    this.canSkip = true,
   });
 
   void _showInsufficientPoints(BuildContext context) {
@@ -39,7 +43,7 @@ class GameActionBar extends StatelessWidget {
   Widget build(BuildContext context) {
     final manager = context.watch<PointsManager>();
     final canAffordHint = manager.canAfford(game.hintCost);
-    final canAffordSkip = manager.canAfford(game.skipCost);
+    final canAffordSkip = canSkip && manager.canAfford(game.skipCost);
 
     return Container(
       height: AppTheme.buttonHeight + 24,
@@ -121,6 +125,25 @@ class GameActionBar extends StatelessWidget {
             color: AppTheme.primaryColor,
             enabled: canAffordSkip,
             onPressed: () async {
+              if (!canSkip) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: const Text(
+                      'Pular já utilizado',
+                      style: TextStyle(
+                        fontSize: AppTheme.fontBody,
+                        fontWeight: FontWeight.w700,
+                      ),
+                    ),
+                    backgroundColor: AppTheme.errorColor,
+                    behavior: SnackBarBehavior.floating,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12)),
+                    duration: const Duration(seconds: 2),
+                  ),
+                );
+                return;
+              }
               final success = await manager.useSkip(game);
               if (!context.mounted) return;
               if (success) {

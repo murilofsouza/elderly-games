@@ -6,7 +6,7 @@ import '../../../models/point_transaction.dart';
 import 'memory_assets.dart';
 import 'memory_models.dart';
 
-const String _kMemoryGameId = 'memory_game';
+const String _kMemoryGameId = 'memory_cards';
 
 /// Base points awarded per matched pair (before multiplier and combo).
 const int _kBasePoints = 20;

@@ -38,30 +38,35 @@ class PointsManager extends ChangeNotifier {
     final bonusEarned = bonus > 0 ? (baseEarned * bonus ~/ 100) : 0;
     final total = baseEarned + bonusEarned;
 
-    _user = _user.earnPoints(total);
+    // Guard: skip point mutation and transaction recording when nothing was
+    // earned (e.g. all answers wrong in number sequence).  Streak is still
+    // persisted below so the daily streak always advances.
+    if (total > 0) {
+      _user = _user.earnPoints(total);
 
-    // Update high score
+      await _recordTransaction(
+        gameId: info.id,
+        type: TransactionType.earned,
+        amount: baseEarned,
+        description: 'Pontos ganhos em ${info.title}',
+      );
+
+      if (bonusEarned > 0) {
+        await _recordTransaction(
+          gameId: info.id,
+          type: TransactionType.streakBonus,
+          amount: bonusEarned,
+          description: 'Bônus de sequência de $dailyStreak dias',
+        );
+      }
+    }
+
+    // Update high score regardless of points earned.
     final currentBest = _user.gameHighScores[info.id] ?? 0;
     if (result.score > currentBest) {
       final updated = Map<String, int>.from(_user.gameHighScores)
         ..[info.id] = result.score;
       _user = _user.copyWith(gameHighScores: updated);
-    }
-
-    await _recordTransaction(
-      gameId: info.id,
-      type: TransactionType.earned,
-      amount: baseEarned,
-      description: 'Pontos ganhos em ${info.title}',
-    );
-
-    if (bonusEarned > 0) {
-      await _recordTransaction(
-        gameId: info.id,
-        type: TransactionType.streakBonus,
-        amount: bonusEarned,
-        description: 'Bonus de sequencia de $dailyStreak dias',
-      );
     }
 
     await _storage.saveUserProfile(_user);

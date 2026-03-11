@@ -219,16 +219,18 @@ class _ProfileTab extends StatefulWidget {
 class _ProfileTabState extends State<_ProfileTab> {
   Future<List<PointTransaction>>? _transactionsFuture;
 
-  @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-    _transactionsFuture =
-        context.read<PointsManager>().getRecentTransactions(limit: 10);
-  }
+  // Cached to detect changes and re-fetch the transaction list.
+  int? _cachedCurrentPoints;
 
   @override
   Widget build(BuildContext context) {
     final manager = context.watch<PointsManager>();
+
+    // Re-fetch whenever available points change (covers earn AND spend events).
+    if (_cachedCurrentPoints != manager.currentPoints) {
+      _cachedCurrentPoints = manager.currentPoints;
+      _transactionsFuture = manager.getRecentTransactions(limit: 10);
+    }
     final user = manager.user;
     final initial = user.name.isNotEmpty
         ? user.name.trim()[0].toUpperCase()

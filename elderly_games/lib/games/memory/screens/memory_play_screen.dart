@@ -152,6 +152,7 @@ class _MemoryPlayScreenState extends State<MemoryPlayScreen> {
                     game: _gameInfo,
                     onHintUsed: _onHintUsed,
                     onSkipUsed: _onSkipUsed,
+                    canSkip: _gameState.skipsUsed < 1,
                   ),
                 ],
               ),

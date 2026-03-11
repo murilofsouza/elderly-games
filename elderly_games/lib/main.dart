@@ -5,6 +5,8 @@ import 'package:uuid/uuid.dart';
 
 import 'games/memory/screens/memory_phase_screen.dart';
 import 'games/memory/screens/memory_play_screen.dart';
+import 'games/number_sequence/screens/number_sequence_play_screen.dart';
+import 'games/word_search/screens/word_search_play_screen.dart';
 import 'models/game_info.dart';
 import 'models/user_profile.dart';
 import 'screens/game_placeholder_screen.dart';
@@ -89,6 +91,24 @@ class ElderlyGamesApp extends StatelessWidget {
             return MaterialPageRoute(
               settings: settings,
               builder: (_) => MemoryPlayScreen(phaseNumber: args),
+            );
+          }
+
+          // ── Number Sequence ───────────────────────────────────────────────────
+
+          if (name == '/number_sequence') {
+            return MaterialPageRoute(
+              settings: settings,
+              builder: (_) => const NumberSequencePlayScreen(),
+            );
+          }
+
+          // ── Word Search ───────────────────────────────────────────────────────
+
+          if (name == '/word_search') {
+            return MaterialPageRoute(
+              settings: settings,
+              builder: (_) => const WordSearchPlayScreen(),
             );
           }
 

@@ -21,7 +21,8 @@
       "Bash(cd \"/Users/murilof.souza/Library/Mobile Documents/com~apple~CloudDocs/CursorAI/Elderly Games/elderly_games\" && flutter analyze lib/games/memory/memory_game_state.dart 2>&1)",
       "Bash(cd \"/Users/murilof.souza/Library/Mobile Documents/com~apple~CloudDocs/CursorAI/Elderly Games/elderly_games\" && flutter analyze lib/games/memory/screens/memory_phase_screen.dart lib/services/storage_service.dart 2>&1)",
       "Bash(cd \"/Users/murilof.souza/Library/Mobile Documents/com~apple~CloudDocs/CursorAI/Elderly Games/elderly_games\" && flutter analyze lib/games/memory/screens/memory_play_screen.dart 2>&1)",
-      "Bash(cd \"/Users/murilof.souza/Library/Mobile Documents/com~apple~CloudDocs/CursorAI/Elderly Games/elderly_games\" && flutter analyze lib/games/memory/screens/ 2>&1)"
+      "Bash(cd \"/Users/murilof.souza/Library/Mobile Documents/com~apple~CloudDocs/CursorAI/Elderly Games/elderly_games\" && flutter analyze lib/games/memory/screens/ 2>&1)",
+      "Bash(cd \"/Users/murilof.souza/Library/Mobile Documents/com~apple~CloudDocs/CursorAI/Elderly Games/elderly_games\" && flutter analyze lib/games/word_search/ 2>&1)"
     ]
   }
 }
