@@ -19,6 +19,10 @@ abstract class AppColors {
   /// Accent — NEVER use as text on white (1.55:1). Only for backgrounds, icons, badges.
   static const Color amarelo = Color(0xFFFFC800);
 
+  /// Dark amber — use amarelo as text/icon on light backgrounds (6.1:1 ✅ AA).
+  /// Pair with amarelo fills when you need a readable "gold/reward" foreground.
+  static const Color amareloText = Color(0xFF7A5C00);
+
   /// Accent — only use with white text ON coral bg (3.98:1 ✅ AA large text).
   /// Do NOT use coral as text color on white.
   static const Color coral = Color(0xFFE64628);

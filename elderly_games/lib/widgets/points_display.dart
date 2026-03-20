@@ -29,6 +29,7 @@ class PointsDisplay extends StatelessWidget {
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
+          // Icons use bright amarelo: dark-blue header bg gives 7.5:1 ✅ AAA.
           _Pill(
             icon: Icons.stars_rounded,
             iconColor: AppTheme.secondaryColor,
@@ -43,7 +44,7 @@ class PointsDisplay extends StatelessWidget {
           ),
           _Pill(
             icon: Icons.local_fire_department_rounded,
-            iconColor: AppTheme.pointsColor,
+            iconColor: AppTheme.secondaryColor,
             value: dailyStreak,
             label: 'dias',
           ),

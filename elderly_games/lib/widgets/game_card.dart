@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../core/theme/app_colors.dart';
 import '../models/game_info.dart';
 import '../themes/app_theme.dart';
 
@@ -201,7 +202,7 @@ class _PriceBadge extends StatelessWidget {
         style: const TextStyle(
           fontSize: AppTheme.fontSmall,
           fontWeight: FontWeight.w800,
-          color: Colors.white,
+          color: AppColors.btnSecondaryText,
         ),
       ),
     );

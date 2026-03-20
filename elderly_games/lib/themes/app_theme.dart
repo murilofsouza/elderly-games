@@ -14,7 +14,7 @@ abstract class AppTheme {
   static const Color successColor = AppColors.success;
   static const Color textPrimary = AppColors.textPrimary;
   static const Color textSecondary = AppColors.textSecondary;
-  static const Color pointsColor = AppColors.amarelo;
+  static const Color pointsColor = AppColors.amareloText;
 
   // ── Font Sizes ────────────────────────────────────────────────────────────────
   static const double fontSmall = 18;

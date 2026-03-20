@@ -47,14 +47,14 @@ class GamePlaceholderScreen extends StatelessWidget {
                         width: 120,
                         height: 120,
                         decoration: BoxDecoration(
-                          color: AppTheme.secondaryColor
-                              .withValues(alpha: 0.12),
+                          color: AppTheme.primaryColor
+                              .withValues(alpha: 0.10),
                           shape: BoxShape.circle,
                         ),
                         child: const Icon(
                           Icons.construction_rounded,
                           size: 80,
-                          color: AppTheme.secondaryColor,
+                          color: AppTheme.primaryColor,
                         ),
                       ),
                       const SizedBox(height: 28),
@@ -141,7 +141,7 @@ class GamePlaceholderScreen extends StatelessWidget {
                           fontWeight: FontWeight.w700,
                         ),
                       ),
-                      backgroundColor: AppTheme.secondaryColor,
+                      backgroundColor: AppTheme.primaryColor,
                       behavior: SnackBarBehavior.floating,
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(12)),

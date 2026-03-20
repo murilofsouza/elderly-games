@@ -66,7 +66,7 @@ class GameActionBar extends StatelessWidget {
               children: [
                 const Icon(
                   Icons.stars_rounded,
-                  color: AppTheme.secondaryColor,
+                  color: AppTheme.pointsColor,
                   size: 26,
                 ),
                 const SizedBox(width: 6),
@@ -103,7 +103,7 @@ class GameActionBar extends StatelessWidget {
             label: 'Dica',
             cost: game.hintCost,
             icon: Icons.lightbulb_rounded,
-            color: AppTheme.secondaryColor,
+            color: AppTheme.pointsColor,
             enabled: canAffordHint,
             onPressed: () async {
               final success = await manager.useHint(game);

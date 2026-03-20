@@ -171,12 +171,12 @@ class _SettingsScreenState extends State<SettingsScreen> {
                           width: 46,
                           height: 46,
                           decoration: BoxDecoration(
-                            color: AppTheme.secondaryColor.withValues(alpha: 0.12),
+                            color: AppTheme.primaryColor.withValues(alpha: 0.10),
                             borderRadius: BorderRadius.circular(12),
                           ),
                           child: const Icon(
                             Icons.edit_rounded,
-                            color: AppTheme.secondaryColor,
+                            color: AppTheme.primaryColor,
                             size: 26,
                           ),
                         ),

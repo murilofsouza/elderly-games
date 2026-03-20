@@ -164,7 +164,7 @@ class _GamesTab extends StatelessWidget {
         SliverToBoxAdapter(
           child: _SectionTitle(
             icon: Icons.star_rounded,
-            iconColor: AppTheme.secondaryColor,
+            iconColor: AppTheme.pointsColor,
             title: 'Jogos Gratuitos',
           ),
         ),
