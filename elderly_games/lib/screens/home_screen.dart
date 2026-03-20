@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 
 import '../models/point_transaction.dart';
@@ -115,6 +116,15 @@ class _GamesTab extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
+                          SvgPicture.asset(
+                            'assets/images/logo/polie_icon.svg',
+                            height: 36,
+                            colorFilter: const ColorFilter.mode(
+                              Colors.white,
+                              BlendMode.srcIn,
+                            ),
+                          ),
+                          const SizedBox(height: 8),
                           Text(
                             '$_greeting,',
                             style: TextStyle(

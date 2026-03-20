@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 
 import '../../../models/game_info.dart';
@@ -484,28 +485,26 @@ class _CardFace extends StatelessWidget {
   }
 }
 
-// ── Card back (dark green pattern) ───────────────────────────────────────────
+// ── Card back (branded) ───────────────────────────────────────────────────────
 
 class _CardBack extends StatelessWidget {
   const _CardBack({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: const BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-          colors: [Color(0xFF1B5E20), Color(0xFF2E7D32)],
-        ),
-      ),
+    return ColoredBox(
+      color: AppTheme.primaryColor,
       child: Center(
         child: Opacity(
-          opacity: 0.25,
-          child: Icon(
-            Icons.grid_3x3_rounded,
-            size: 32,
-            color: Colors.white,
+          opacity: 0.30,
+          child: SvgPicture.asset(
+            'assets/images/logo/polie_icon.svg',
+            width: 40,
+            height: 40,
+            colorFilter: const ColorFilter.mode(
+              Colors.white,
+              BlendMode.srcIn,
+            ),
           ),
         ),
       ),

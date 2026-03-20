@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 import 'package:uuid/uuid.dart';
 
@@ -65,21 +66,11 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 const SizedBox(height: 24),
 
                 // ── Icon ────────────────────────────────────────────────────
-                Container(
+                SizedBox(
                   width: 120,
                   height: 120,
-                  decoration: BoxDecoration(
-                    color: AppTheme.primaryColor.withValues(alpha: 0.12),
-                    shape: BoxShape.circle,
-                    border: Border.all(
-                      color: AppTheme.primaryColor.withValues(alpha: 0.25),
-                      width: 2,
-                    ),
-                  ),
-                  child: const Icon(
-                    Icons.games_rounded,
-                    size: 64,
-                    color: AppTheme.primaryColor,
+                  child: SvgPicture.asset(
+                    'assets/images/logo/polie_icon.svg',
                   ),
                 ),
                 const SizedBox(height: 32),
