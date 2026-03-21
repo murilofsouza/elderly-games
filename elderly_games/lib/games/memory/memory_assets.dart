@@ -1,4 +1,27 @@
+import 'package:flutter/material.dart';
+
 import 'memory_models.dart';
+
+// Intuitive color for each card pair — used as the accessibility border.
+// Colors match the real-world item so users learn the association naturally.
+const Map<int, Color> cardPairColors = {
+  1:  Color(0xFFEF9A9A), // Maçã      — vermelho pastel
+  2:  Color(0xFFFFF176), // Banana    — amarelo pastel
+  3:  Color(0xFFCE93D8), // Uva       — lilás pastel
+  4:  Color(0xFFFFCC80), // Laranja   — pêssego claro
+  5:  Color(0xFFF48FB1), // Morango   — rosa pastel
+  6:  Color(0xFFA5D6A7), // Melancia  — verde pastel
+  7:  Color(0xFFE6EE9C), // Abacaxi   — verde-limão pastel
+  8:  Color(0xFF80DEEA), // Pêssego   — ciano pastel
+  9:  Color(0xFFFFD54F), // Gato      — âmbar pastel
+  10: Color(0xFFBCAAA4), // Cachorro  — bege/marrom pastel
+  11: Color(0xFF81D4FA), // Pássaro   — azul céu pastel
+  12: Color(0xFF80CBC4), // Peixe     — verde-água pastel
+  13: Color(0xFF9FA8DA), // Cavalo    — índigo pastel
+  14: Color(0xFFF8BBD9), // Coelho    — rosa bebê
+  15: Color(0xFFC5E1A5), // Tartaruga — verde-sálvia pastel
+  16: Color(0xFFB39DDB), // Borboleta — lavanda pastel
+};
 
 // Each entry is a template card. imageAsset holds the emoji placeholder
 // and will be swapped for a real asset path when photo assets are added.

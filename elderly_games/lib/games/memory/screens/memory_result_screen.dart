@@ -207,6 +207,19 @@ class _MemoryResultScreenState extends State<MemoryResultScreen>
               ),
               const SizedBox(height: 24),
 
+              // ── Buttons — acima do fold para não precisar de scroll ──────────
+              FadeTransition(
+                opacity: _contentFade,
+                child: _Buttons(
+                  hasNext: hasNext,
+                  completed: _completed,
+                  onNext: _nextPhase,
+                  onReplay: _replayPhase,
+                  onHome: _returnHome,
+                ),
+              ),
+              const SizedBox(height: 28),
+
               // ── Stats card ──────────────────────────────────────────────────
               FadeTransition(
                 opacity: _contentFade,
@@ -230,19 +243,6 @@ class _MemoryResultScreenState extends State<MemoryResultScreen>
                   completionBonus: _completionBonus,
                   streakBonus: _streakBonusAmount,
                   total: _totalEarned,
-                ),
-              ),
-              const SizedBox(height: 32),
-
-              // ── Buttons ─────────────────────────────────────────────────────
-              FadeTransition(
-                opacity: _contentFade,
-                child: _Buttons(
-                  hasNext: hasNext,
-                  completed: _completed,
-                  onNext: _nextPhase,
-                  onReplay: _replayPhase,
-                  onHome: _returnHome,
                 ),
               ),
             ],

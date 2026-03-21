@@ -31,21 +31,9 @@ class _HomeScreenState extends State<HomeScreen> {
           _ProfileTab(),
         ],
       ),
-      bottomNavigationBar: BottomNavigationBar(
+      bottomNavigationBar: _BottomNav(
         currentIndex: _tabIndex,
         onTap: (i) => setState(() => _tabIndex = i),
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.games_rounded),
-            activeIcon: Icon(Icons.games_rounded),
-            label: 'Jogos',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person_rounded),
-            activeIcon: Icon(Icons.person_rounded),
-            label: 'Perfil',
-          ),
-        ],
       ),
     );
   }
@@ -514,6 +502,110 @@ class _SectionTitle extends StatelessWidget {
             ),
           ),
         ],
+      ),
+    );
+  }
+}
+
+// ── Custom Bottom Navigation ───────────────────────────────────────────────────
+
+class _BottomNav extends StatelessWidget {
+  final int currentIndex;
+  final ValueChanged<int> onTap;
+
+  const _BottomNav({required this.currentIndex, required this.onTap});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+      decoration: BoxDecoration(
+        color: AppTheme.surfaceColor,
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withValues(alpha: 0.08),
+            blurRadius: 8,
+            offset: const Offset(0, -2),
+          ),
+        ],
+      ),
+      child: SafeArea(
+        top: false,
+        child: Row(
+          children: [
+            Expanded(
+              child: _NavButton(
+                icon: Icons.games_rounded,
+                label: 'Jogos',
+                selected: currentIndex == 0,
+                onTap: () => onTap(0),
+              ),
+            ),
+            const SizedBox(width: 12),
+            Expanded(
+              child: _NavButton(
+                icon: Icons.person_rounded,
+                label: 'Perfil',
+                selected: currentIndex == 1,
+                onTap: () => onTap(1),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _NavButton extends StatelessWidget {
+  final IconData icon;
+  final String label;
+  final bool selected;
+  final VoidCallback onTap;
+
+  const _NavButton({
+    required this.icon,
+    required this.label,
+    required this.selected,
+    required this.onTap,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final color = selected ? AppTheme.primaryColor : AppTheme.textSecondary;
+
+    return GestureDetector(
+      onTap: onTap,
+      child: AnimatedContainer(
+        duration: const Duration(milliseconds: 200),
+        height: AppTheme.buttonHeight,
+        decoration: BoxDecoration(
+          color: selected
+              ? AppTheme.primaryColor.withValues(alpha: 0.12)
+              : Colors.transparent,
+          borderRadius: BorderRadius.circular(AppTheme.buttonBorderRadius),
+          border: Border.all(
+            color: selected
+                ? AppTheme.primaryColor.withValues(alpha: 0.40)
+                : AppTheme.textSecondary.withValues(alpha: 0.30),
+            width: 1.5,
+          ),
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(icon, size: 26, color: color),
+            const SizedBox(width: 8),
+            Text(
+              label,
+              style: TextStyle(
+                fontSize: AppTheme.fontSmall,
+                fontWeight: FontWeight.w700,
+                color: color,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

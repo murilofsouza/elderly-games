@@ -67,13 +67,13 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
 
                 // ── Icon ────────────────────────────────────────────────────
                 SizedBox(
-                  width: 120,
-                  height: 120,
+                  width: 64,
+                  height: 64,
                   child: SvgPicture.asset(
-                    'assets/images/logo/polie_icon.svg',
+                    'assets/images/logo/polie_icon_blue.svg',
                   ),
                 ),
-                const SizedBox(height: 32),
+                const SizedBox(height: 48),
 
                 // ── Title ───────────────────────────────────────────────────
                 const Text(

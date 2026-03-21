@@ -9,6 +9,7 @@ import '../../../services/game_registry.dart';
 import '../../../themes/app_theme.dart';
 import '../../../widgets/game_action_bar.dart';
 import '../../../widgets/game_dialogs.dart';
+import '../memory_assets.dart';
 import '../memory_game_state.dart';
 import '../memory_models.dart';
 import 'memory_result_screen.dart';
@@ -307,7 +308,7 @@ class _StatusChip extends StatelessWidget {
           label,
           style: TextStyle(
             fontSize: AppTheme.fontSmall,
-            fontWeight: bold ? FontWeight.w800 : FontWeight.w600,
+            fontWeight: bold ? FontWeight.w800 : FontWeight.w700,
             color: color,
           ),
         ),
@@ -393,7 +394,12 @@ class _CardTile extends StatelessWidget {
           borderRadius: BorderRadius.circular(12),
           border: isHighlighted
               ? Border.all(color: Colors.amber.shade500, width: 3.5)
-              : null,
+              : faceUp
+                  ? Border.all(
+                      color: cardPairColors[card.id] ?? Colors.grey,
+                      width: 2,
+                    )
+                  : null,
           boxShadow: const [
             BoxShadow(
               color: Color(0x1A000000),

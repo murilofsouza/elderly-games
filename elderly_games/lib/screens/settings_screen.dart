@@ -78,14 +78,19 @@ class _SettingsScreenState extends State<SettingsScreen> {
           children: [
             _AboutRow(label: 'Versão', value: '1.0.0'),
             SizedBox(height: 12),
-            _AboutRow(label: 'Contato', value: 'contato@jogosnoidosos.com.br'),
-            SizedBox(height: 12),
+            _AboutRow(label: 'Contato', value: 'murilof.souza@outlook.com'),
+            SizedBox(height: 16),
             Text(
-              'Desenvolvido com carinho para proporcionar entretenimento e estimulação cognitiva.',
+              'Este app nasceu de um presente de amor — '
+              'desenvolvido ao lado da vovó Raídes, '
+              'a avó mais especial do mundo. '
+              'Que cada joguinho traga um sorriso, '
+              'exercite a mente e lembre que você '
+              'é amada todos os dias. 💙',
               style: TextStyle(
                 fontSize: AppTheme.fontSmall,
                 color: AppTheme.textSecondary,
-                height: 1.5,
+                height: 1.6,
               ),
             ),
           ],

@@ -215,8 +215,8 @@ class _ActionButton extends StatelessWidget {
                   label,
                   style: TextStyle(
                     fontSize: AppTheme.fontSmall,
-                    fontWeight: FontWeight.w700,
-                    color: effectiveColor,
+                    fontWeight: FontWeight.w800,
+                    color: enabled ? AppTheme.textPrimary : Colors.grey.shade400,
                     height: 1.1,
                   ),
                 ),
@@ -224,8 +224,10 @@ class _ActionButton extends StatelessWidget {
                   '-$cost pts',
                   style: TextStyle(
                     fontSize: AppTheme.fontSmall,
-                    fontWeight: FontWeight.w600,
-                    color: effectiveColor.withValues(alpha: 0.80),
+                    fontWeight: FontWeight.w700,
+                    color: enabled
+                        ? AppTheme.textPrimary.withValues(alpha: 0.65)
+                        : Colors.grey.shade400,
                     height: 1.1,
                   ),
                 ),
